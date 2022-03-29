@@ -15,11 +15,12 @@
 #
 
 # ArrowOS additions
-DEVICE_MAINTAINER := surblazer
+
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 2340
+TARGET_SCREEN_HEIGHT := 2340 
+TARGET_BOOT_ANIMATION_RES := 1080
 
 # Inherit from merlinx device makefile
 $(call inherit-product, device/xiaomi/merlinx/device.mk)
@@ -30,7 +31,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/arrow/config/common.mk)
+$(call inherit-product, vendor/aosp/config/common.mk)
 
 #
 # All components inherited here go to system_ext image
@@ -40,10 +41,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := merlinx
-PRODUCT_NAME := arrow_merlinx
+PRODUCT_NAME := aosp_merlinx
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := Redmi Note 9
 PRODUCT_MANUFACTURER := Xiaomi
+
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 TARGET_VENDOR := xiaomi
